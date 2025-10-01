@@ -25,7 +25,7 @@ int main() {
 
      // Entrada de dados - Carta 1
     printf("Digite o estado da carta 1 (A-H): \n");
-    scanf(" %c", &estado1);
+    scanf("%s", &estado1);
 
     printf("Digite o código da carta 1: \n");
     scanf("%s", codigo1);
@@ -47,7 +47,7 @@ int main() {
 
        // Entrada de dados - Carta 2
     printf("\nDigite o estado da carta 2 (A-H): \n");
-    scanf(" %c", &estado2);
+    scanf("%s", &estado2);
 
     printf("Digite o código da carta 2: \n");
     scanf("%s", codigo2);
@@ -68,17 +68,27 @@ int main() {
     scanf("%d", &pontosTuristicos2);
 
     // Cálculos carta 1
-    float densidade1 = populacao1 / area1;
-    float pibPerCapita1 = pib1 / populacao1;
-    float  superPoder1 = populacao1 + area1 + pib1 + pontosTuristicos1 + pibPerCapita1 + (1 / densidade1);
+     densidade1 = populacao1 / area1;
+     pibPerCapita1 = pib1 / populacao1;
+     superPoder1 = populacao1 + area1 + pib1 + pontosTuristicos1 + pibPerCapita1 + (1 / densidade1);
 
     // Cálculos carta 2
-    float densidade2 = populacao2 / area2;
-    float pibPerCapita2 = pib2 / populacao2;
-    float superPoder2 = populacao2 + area2 + pib2 + pontosTuristicos2 + pibPerCapita2 + (1 / densidade2);
+     densidade2 = populacao2 / area2;
+     pibPerCapita2 = pib2 / populacao2;
+     superPoder2 = populacao2 + area2 + pib2 + pontosTuristicos2 + pibPerCapita2 + (1 / densidade2);
 
-  // comparação das cartas
+  // comparação de cartas (Atributo: PIB)
 
+  printf ("Carta 1 - %s: %f \n", pib1, nomeCidade1);
+  printf ("Carta 2 - %s: %f \n", pib2, nomeCidade2);
+
+  if (pib1 > pib2) {
+    printf ("PIB 1: (%s) carta 1 venceu \n",nomeCidade1);
+  }else {
+    printf ("PIB 2:(%s) Carta 2 venceu \n", nomeCidade2);
+  }
+ 
+ 
   
 
     return 0;
