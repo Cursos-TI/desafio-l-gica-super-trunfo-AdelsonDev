@@ -7,7 +7,7 @@ int main() {
     char estado1;                 
     char codigo1[5];              
     char nomeCidade1[41];         
-    unsigned long int populacao1; 
+    int populacao1; 
     float area1;                  
     float pib1;                   
     int pontosTuristicos1;        
@@ -17,7 +17,7 @@ int main() {
     char estado2;
     char codigo2[5];
     char nomeCidade2[41];
-    unsigned long int populacao2;
+    int populacao2;
     float area2;
     float pib2;
     int pontosTuristicos2;
@@ -31,10 +31,10 @@ int main() {
     scanf("%s", codigo1);
 
     printf("Digite o nome da cidade da carta 1: \n");
-    scanf(" %[^\n]", nomeCidade1);
+    scanf("%s", nomeCidade1);
 
     printf("Digite a população da carta 1: \n");
-    scanf("%lu", &populacao1);
+    scanf("%d", &populacao1);
 
     printf("Digite a área da carta 1 (km2): \n");
     scanf("%f", &area1);
@@ -53,10 +53,10 @@ int main() {
     scanf("%s", codigo2);
 
     printf("Digite o nome da cidade da carta 2: \n");
-    scanf(" %[^\n]", nomeCidade2);
+    scanf("%s", nomeCidade2);
 
     printf("Digite a população da carta 2: \n");
-    scanf("%lu", &populacao2);
+    scanf("%d", &populacao2);
 
     printf("Digite a área da carta 2 (km2): \n");
     scanf("%f", &area2);
@@ -79,11 +79,11 @@ int main() {
 
   // comparação de cartas (Atributo: PIB)
 
-  printf ("Carta 1 - %s: %f \n", pib1, nomeCidade1);
-  printf ("Carta 2 - %s: %f \n", pib2, nomeCidade2);
+  printf ("Carta 1 - %s: %.2f \n", pib1, nomeCidade1);
+  printf ("Carta 2 - %s: %.2f \n", pib2, nomeCidade2);
 
   if (pib1 > pib2) {
-    printf ("PIB 1: (%s) carta 1 venceu \n",nomeCidade1);
+    printf ("PIB 1: (%s) carta 1 venceu \n", nomeCidade1);
   }else {
     printf ("PIB 2:(%s) Carta 2 venceu \n", nomeCidade2);
   }
