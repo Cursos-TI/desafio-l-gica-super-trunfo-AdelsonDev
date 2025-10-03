@@ -1,21 +1,21 @@
 #include <stdio.h>
 
-   
 
 int main() {
-     // Variáveis carta 1
-    char estado1;                 
-    char codigo1[5];              
-    char nomeCidade1[41];         
-    int populacao1; 
-    float area1;                  
-    float pib1;                   
-    int pontosTuristicos1;        
-    float densidade1, pibPerCapita1, superPoder1;
+    // Variáveis carta 1
+    char estado1;                 // Estado representado por uma letra (A-H)
+    char codigo1[10];              // Código da carta (ex: A01) 
+    char nomeCidade1[41];         // Nome da cidade (até 40 caracteres )
+    int populacao1;               // População da cidade (números grandes)
+    float area1;                  // Área em km² 
+    float pib1;                   // PIB em bilhões de reais
+    int pontosTuristicos1;        // Número de pontos turísticos 
+    float densidade1, pibPerCapita1, superPoder1; // Variáveis calculadas
+
 
     // Variáveis carta 2
     char estado2;
-    char codigo2[5];
+    char codigo2[10];
     char nomeCidade2[41];
     int populacao2;
     float area2;
@@ -23,15 +23,17 @@ int main() {
     int pontosTuristicos2;
     float densidade2, pibPerCapita2, superPoder2;
 
-     // Entrada de dados - Carta 1
+    // Entrada de dados - Carta 1
     printf("Digite o estado da carta 1 (A-H): \n");
-    scanf("%s", &estado1);
+    scanf(" %s", &estado1);
 
+    
     printf("Digite o código da carta 1: \n");
     scanf("%s", codigo1);
 
+   
     printf("Digite o nome da cidade da carta 1: \n");
-    scanf("%s", nomeCidade1);
+    scanf(" %s", nomeCidade1);
 
     printf("Digite a população da carta 1: \n");
     scanf("%d", &populacao1);
@@ -45,15 +47,15 @@ int main() {
     printf("Digite o número de pontos turísticos da carta 1: \n");
     scanf("%d", &pontosTuristicos1);
 
-       // Entrada de dados - Carta 2
+    // Entrada de dados - Carta 2
     printf("\nDigite o estado da carta 2 (A-H): \n");
-    scanf("%s", &estado2);
+    scanf(" %s", &estado2);
 
     printf("Digite o código da carta 2: \n");
     scanf("%s", codigo2);
 
     printf("Digite o nome da cidade da carta 2: \n");
-    scanf("%s", nomeCidade2);
+    scanf(" %s", nomeCidade2);
 
     printf("Digite a população da carta 2: \n");
     scanf("%d", &populacao2);
@@ -77,19 +79,30 @@ int main() {
      pibPerCapita2 = pib2 / populacao2;
      superPoder2 = populacao2 + area2 + pib2 + pontosTuristicos2 + pibPerCapita2 + (1 / densidade2);
 
-  // comparação de cartas (Atributo: PIB)
-
-  printf ("Carta 1 - %s: %.2f \n", pib1, nomeCidade1);
-  printf ("Carta 2 - %s: %.2f \n", pib2, nomeCidade2);
-
-  if (pib1 > pib2) {
-    printf ("PIB 1: (%s) carta 1 venceu \n", nomeCidade1);
-  }else {
-    printf ("PIB 2:(%s) Carta 2 venceu \n", nomeCidade2);
-  }
  
- 
-  
 
+    // Exibição das cartas
+    printf("\n Dados da Carta 1 \n");
+    printf("Estado: %c\nCódigo: %s\nCidade: %s\n", estado1, codigo1, nomeCidade1);
+    printf("População: %d\nÁrea: %.2f km²\nPIB: %.2f bilhões de reais\nPontos Turísticos: %d\n", populacao1, area1, pib1, pontosTuristicos1);
+    printf("Densidade Populacional: %.2f hab/km²\nPIB per Capita: %.2f reais\nSuper Poder: %.2f\n", densidade1, pibPerCapita1, superPoder1);
+
+    printf("\n Dados da Carta 2 \n");
+    printf("Estado: %c\nCodigo: %s\nCidade: %s\n", estado2, codigo2, nomeCidade2);
+    printf("População: %d\nÁrea: %.2f km²\nPIB: %.2f bilhões de reais\nPontos Turísticos: %d\n", populacao2, area2, pib2, pontosTuristicos2);
+    printf("Densidade Populacional: %.2f\nPIB per Capita: %.2f reais\nSuper Poder: %.2f\n", densidade2, pibPerCapita2, superPoder2);
+
+    // Comparação de cartas (Atributo: densidade populacional)
+    
+    printf("Carta 1 - (%s): %.2f \n", nomeCidade1, densidade1);
+    printf("carta 2 - (%s): %.2f \n", nomeCidade2, densidade2);
+
+  if (densidade2 < densidade1) {
+    printf ("Densidade 2:(%s) %.2f hab/km²\n Carta 2 venceu \n", nomeCidade2, densidade2);
+}else {
+    printf ("Densidade 1:(%s) %.2f hab/km²\n Carta 1 venceu \n", nomeCidade1, densidade1);
+}
+ 
+    
     return 0;
 }
